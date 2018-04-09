@@ -5,66 +5,20 @@
 
 </head>
 <body>
+<tr>
 	<div layout:fragment="content">
 		<div class="container">
 			<div class="row">
 				<div class="gallery">
-					<figure>
+					<figure th:each="image : ${page.content}">
 						<img
-							src="/upload/IMG_0230.JPG"
+							th:src="@{'/upload/' + ${image.name}}"
 							alt="" />
 						<figcaption>
-							23 MAR 2016 <small>Bangkok</small>
+							<span th:text="${image.date}"></span> <small><span th:text="${image.location}"></span> </small>
 						</figcaption>
 					</figure>
-					<figure>
-						<img
-							src="/upload/IMG_0548.JPG"
-							alt="" />
-						<figcaption>
-							31 MAR 2016 <small>Chonburi</small>
-						</figcaption>
-					</figure>
-					<figure>
-						<img
-							src="/upload/IMG_0570.JPG"
-							alt="" />
-						<figcaption>
-							31 MAR 2016 <small>Chonburi</small>
-						</figcaption>
-					</figure>
-					<figure>
-						<img
-							src="/upload/IMG_0584.JPG"
-							alt="" />
-						<figcaption>
-							31 MAR 2016 <small>Chonburi</small>
-						</figcaption>
-					</figure>
-					<figure>
-						<img
-							src="/upload/IMG_1134.JPG"
-							alt="" />
-						<figcaption>
-							5 APR 2016 <small>Nonthaburi</small>
-						</figcaption>
-					</figure>
-					<figure>
-						<img
-							src="/upload/IMG_1552.JPG"
-							alt="" />
-						<figcaption>
-							15 APR 2016 <small>Chumphon</small>
-						</figcaption>
-					</figure>
-					<figure>
-						<img
-							src="/upload/IMG_1560.JPG"
-							alt="" />
-						<figcaption>
-							15 APR 2016 <small>Chumphon</small>
-						</figcaption>
-					</figure>
+				
 				</div>
 
 				<svg xmlns="http://www.w3.org/2000/svg"

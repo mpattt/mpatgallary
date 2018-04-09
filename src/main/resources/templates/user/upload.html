@@ -1,18 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html layout:decorator="layout/main">
 <head>
 <title>Upload File</title>
 </head>
 <body>
-  <c:url value="/upload" var="upload" />
-  <c:url value="/file" var="filePath" />
-	
-  <form action="${upload}" enctype="multipart/form-data"	method="post">
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
-    Select Photo: <input type="file" accept="image/*" name="file" /> 
-    <input type="submit" value="upload" />
-  </form>
-  <br>
-  <img src="${filePath}" height="100" width="100">
+	<div layout:fragment="content" th:remove="tag">
+		<h3 th:if="${message}" th:text="${message}" class="flash"><</h3>
+
+		<form method="post" enctype="multipart/form-data" th:action="@{/images}" th:object="${imageAddForm}">
+			<input type="text" th:field="*{location}" class="form-control"/>
+			 <input type="date" th:field="*{date}" class="form-control" /> 
+			<input type="file" name="file"  class="form-control"/><br/> 
+			<input type="submit" value="upload" />
+		</form>
+	</div>
 
 </body>
 </html>

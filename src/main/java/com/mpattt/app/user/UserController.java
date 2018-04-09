@@ -10,7 +10,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.servlet.ModelAndView;
 
 import com.mpattt.domain.component.PageWrapper;
 import com.mpattt.domain.entity.User;
@@ -36,16 +36,13 @@ public class UserController {
 		return "user/list";
 	}
 	
-	@Secured("ROLE_USER")
-	@RequestMapping("/user/user")
-	public String user() {
-		return "user/gall";
-	}
 	
 	@Secured("ROLE_ADMIN")
 	@RequestMapping("/admin/user")
-	public String admin() {
-		return "user/upload";
+	public ModelAndView admin(ModelAndView modelAndView) {
+		modelAndView.setViewName("user/upload");
+		modelAndView.addObject("imageAddForm", new ImageAddForm());
+		return modelAndView;
 	}
 	
 	

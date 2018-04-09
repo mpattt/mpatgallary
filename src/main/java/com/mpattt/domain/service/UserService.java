@@ -25,6 +25,7 @@ public class UserService {
 	@Autowired
 	PasswordEncoder passwordEncoder;
 
+
 	public void createUser(UserRegisterForm userAddForm) throws NoSuchAlgorithmException {
 		//Date nowDate = Calendar.getInstance().getTime();
 		User user = new User();
